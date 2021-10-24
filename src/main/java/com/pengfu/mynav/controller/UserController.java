@@ -42,17 +42,11 @@ public class UserController {
             return Result.build(ResultCode.PARAM_IS_LACK);
         }
 
-        // 判断是否已被注册
-        if (userService.findByUsername(username) != null) {
-            return Result.build(ResultCode.FAIL, "用户名存在");
-        }
-
-        // 用户注册
-        UserVo userVo = userService.register(username, password);
-        if (userVo != null) {
+        try {
+            UserVo userVo = userService.register(username, password);
             return Result.build(ResultCode.SUCCESS, "注册成功", userVo);
-        } else {
-            return Result.build(ResultCode.FAIL, "注册失败");
+        } catch (Exception e) {
+            return Result.build(ResultCode.FAIL, e.getMessage());
         }
     }
 

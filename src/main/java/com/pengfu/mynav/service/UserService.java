@@ -3,6 +3,8 @@ package com.pengfu.mynav.service;
 import com.pengfu.mynav.mapper.UserMapper;
 import com.pengfu.mynav.model.entity.User;
 import com.pengfu.mynav.model.vo.UserVo;
+import com.pengfu.mynav.util.Result;
+import com.pengfu.mynav.util.ResultCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +21,7 @@ public class UserService {
     private UserMapper userMapper;
 
 
-    public User findByUsername(String username) {
+    private User findByUsername(String username) {
         User user = new User();
         user.setUsername(username);
         List<User> userList = userMapper.select(user);
@@ -29,7 +31,13 @@ public class UserService {
         return userList.get(0);
     }
 
-    public UserVo register(String username, String password) {
+    public UserVo register(String username, String password) throws Exception {
+        // 判断是否已被注册
+        if (findByUsername(username) != null) {
+            throw new Exception("用户名存在");
+        }
+
+        // 用户注册
         User user = new User();
         user.setUsername(username);
         user.setPassword(password);
@@ -40,7 +48,7 @@ public class UserService {
             userVo.setUid(user.getId());
             return userVo;
         }
-        return null;
+        throw new Exception("注册失败");
     }
 
     public UserVo login(String username, String password) {
