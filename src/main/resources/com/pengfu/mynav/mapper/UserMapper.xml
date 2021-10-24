@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pengfu.mynav.mapper.UserMapper">
+    <resultMap id="userMap" type="user">
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result property="username" column="user_username" jdbcType="VARCHAR" />
+        <result property="password" column="user_password" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <!-- 起别名 -->
+    <sql id="AS_Column_List">
+        username user_username, password user_password
+    </sql>
+
+    <select id="select" parameterType="user" resultMap="userMap">
+        SELECT <include refid="AS_Column_List"/>
+        FROM `user`
+        <where>
+            <if test="id != null">id = #{id}</if>
+            <if test="username != null">AND username = #{username}</if>
+        </where>
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="user">
+        INSERT INTO `user`
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="username != null">
+                username,
+            </if>
+            <if test="password != null">
+                password,
+            </if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+            <if test="username != null">
+                #{username},
+            </if>
+            <if test="password != null">
+                #{password},
+            </if>
+        </trim>
+    </insert>
+
+</mapper>
