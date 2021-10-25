@@ -5,6 +5,7 @@ import com.pengfu.mynav.model.entity.User;
 import com.pengfu.mynav.model.vo.UserVo;
 import com.pengfu.mynav.util.Result;
 import com.pengfu.mynav.util.ResultCode;
+import com.pengfu.mynav.util.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,7 +35,7 @@ public class UserService {
     public UserVo register(String username, String password) throws Exception {
         // 判断是否已被注册
         if (findByUsername(username) != null) {
-            throw new Exception("用户名存在");
+            throw new ServiceException("用户名存在");
         }
 
         // 用户注册

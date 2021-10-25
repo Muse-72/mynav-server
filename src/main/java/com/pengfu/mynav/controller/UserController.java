@@ -6,6 +6,7 @@ import com.pengfu.mynav.model.vo.UserVo;
 import com.pengfu.mynav.service.UserService;
 import com.pengfu.mynav.util.Result;
 import com.pengfu.mynav.util.ResultCode;
+import com.pengfu.mynav.util.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -45,8 +46,11 @@ public class UserController {
         try {
             UserVo userVo = userService.register(username, password);
             return Result.build(ResultCode.SUCCESS, "注册成功", userVo);
-        } catch (Exception e) {
+        } catch (ServiceException e) {
             return Result.build(ResultCode.FAIL, e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Result.build(ResultCode.ERROR);
         }
     }
 

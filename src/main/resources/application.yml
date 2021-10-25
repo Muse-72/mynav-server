@@ -1,12 +1,6 @@
-server:
-  port: 8080
-
 spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/mynav?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
-    username: root
-    password: root
+  profiles:
+    active: prod
 
 mybatis:
   type-aliases-package: com.pengfu.mynav.model.entity
