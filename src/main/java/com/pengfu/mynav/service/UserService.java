@@ -31,27 +31,32 @@ public class UserService {
         return userList.get(0);
     }
 
-    public UserDTO register(String username, String password) throws Exception {
+    public UserVO register(UserDTO userDTO) throws Exception {
+        // 参数判断
+        if (userDTO.getUsername().length() > 16) {
+            throw new ServiceException("用户名长度必须为1到16");
+        }
+
         // 判断是否已被注册
-        if (findByUsername(username) != null) {
+        if (findByUsername(userDTO.getUsername()) != null) {
             throw new ServiceException("用户名存在");
         }
 
         // 用户注册
         User user = new User();
-        user.setUsername(username);
-        user.setPassword(password);
+        user.setUsername(userDTO.getUsername());
+        user.setPassword(userDTO.getPassword());
 
         if (userMapper.insert(user) > 0) {
-            UserDTO userDTO = new UserDTO();
-            userDTO.setUsername(username);
-            userDTO.setUid(user.getId());
-            return userDTO;
+            UserVO userVO = new UserVO();
+            userVO.setUsername(userDTO.getUsername());
+            userVO.setUid(user.getId());
+            return userVO;
         }
         throw new Exception("注册失败");
     }
 
-    public UserDTO login(String username, String password) {
+    public UserVO login(String username, String password) {
         return null;
     }
 

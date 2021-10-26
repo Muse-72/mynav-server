@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6ab7126f-e9c9-48bd-a62e-73d299a40ee5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pengfu/mynav/config/SwaggerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pengfu/mynav/model/dto/UserDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pengfu/mynav/util/ValidatorUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pengfu/mynav/config/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pengfu/mynav/config/SwaggerConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pengfu/mynav/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pengfu/mynav/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pengfu/mynav/model/vo/UserVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pengfu/mynav/model/vo/UserVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pengfu/mynav/model/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pengfu/mynav/model/dto/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pengfu/mynav/model/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pengfu/mynav/model/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pengfu/mynav/model/vo/UserVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pengfu/mynav/model/vo/UserVO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pengfu/mynav/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pengfu/mynav/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pengfu/mynav/util/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pengfu/mynav/util/Result.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
@@ -125,6 +126,7 @@
       <workItem from="1635084741134" duration="1520000" />
       <workItem from="1635150567225" duration="6391000" />
       <workItem from="1635170468963" duration="4167000" />
+      <workItem from="1635210264837" duration="8248000" />
     </task>
     <servers />
   </component>

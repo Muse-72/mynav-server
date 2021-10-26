@@ -14,7 +14,7 @@ public class Result<T> {
     @ApiModelProperty("状态码")
     private Integer code;
 
-    @ApiModelProperty("响应信息")
+    @ApiModelProperty("响应描述")
     private String message;
 
     @ApiModelProperty("响应数据")

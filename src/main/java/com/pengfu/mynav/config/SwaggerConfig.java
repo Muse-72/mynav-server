@@ -1,5 +1,6 @@
 package com.pengfu.mynav.config;
 
+import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
  * @author PrideZH
  * @date 2021/10/25 - 22:41
  */
+@EnableKnife4j
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
