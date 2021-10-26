@@ -1,10 +1,9 @@
 package com.pengfu.mynav.service;
 
 import com.pengfu.mynav.mapper.UserMapper;
+import com.pengfu.mynav.model.dto.UserDTO;
 import com.pengfu.mynav.model.entity.User;
-import com.pengfu.mynav.model.vo.UserVo;
-import com.pengfu.mynav.util.Result;
-import com.pengfu.mynav.util.ResultCode;
+import com.pengfu.mynav.model.vo.UserVO;
 import com.pengfu.mynav.util.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,7 +31,7 @@ public class UserService {
         return userList.get(0);
     }
 
-    public UserVo register(String username, String password) throws Exception {
+    public UserDTO register(String username, String password) throws Exception {
         // 判断是否已被注册
         if (findByUsername(username) != null) {
             throw new ServiceException("用户名存在");
@@ -44,15 +43,15 @@ public class UserService {
         user.setPassword(password);
 
         if (userMapper.insert(user) > 0) {
-            UserVo userVo = new UserVo();
-            userVo.setUsername(username);
-            userVo.setUid(user.getId());
-            return userVo;
+            UserDTO userDTO = new UserDTO();
+            userDTO.setUsername(username);
+            userDTO.setUid(user.getId());
+            return userDTO;
         }
         throw new Exception("注册失败");
     }
 
-    public UserVo login(String username, String password) {
+    public UserDTO login(String username, String password) {
         return null;
     }
 

@@ -1,21 +1,26 @@
 package com.pengfu.mynav.util;
 
 import com.alibaba.fastjson.JSON;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * @author PrideZH
  * @date 2021/10/20 - 20:54
  */
-public class Result {
+@ApiModel("响应数据")
+public class Result<T> {
 
-    /** 响应状态 */
+    @ApiModelProperty("状态码")
     private Integer code;
-    /** 响应消息 */
-    private String message;
-    /** 响应数据 */
-    private Object data;
 
-    public Result(Integer code, String message, Object data) {
+    @ApiModelProperty("响应信息")
+    private String message;
+
+    @ApiModelProperty("响应数据")
+    private T data;
+
+    private Result(Integer code, String message, T data) {
         this.code = code;
         this.message = message;
         this.data = data;
@@ -37,28 +42,28 @@ public class Result {
         this.message = message;
     }
 
-    public Object getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(T data) {
         this.data = data;
     }
 
-    public static Result build(ResultCode resultCode, String message, Object data) {
-        return new Result(resultCode.code(), message, data);
+    public static <T> Result<T> build(ResultCode resultCode, String message, T data) {
+        return new Result<T>(resultCode.code(), message, data);
     }
 
-    public static Result build(ResultCode resultCode, String message) {
-        return new Result(resultCode.code(), message, null);
+    public static <T> Result<T> build(ResultCode resultCode, String message) {
+        return new Result<T>(resultCode.code(), message, null);
     }
 
-    public static Result build(ResultCode resultCode, Object data) {
-        return new Result(resultCode.code(), resultCode.message(), data);
+    public static <T> Result<T> build(ResultCode resultCode, T data) {
+        return new Result<T>(resultCode.code(), resultCode.message(), data);
     }
 
-    public static Result build(ResultCode resultCode) {
-        return new Result(resultCode.code(), resultCode.message(), null);
+    public static <T> Result<T> build(ResultCode resultCode) {
+        return new Result<T>(resultCode.code(), resultCode.message(), null);
     }
 
     @Override
